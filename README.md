@@ -11,4 +11,4 @@ Stack:
 - MockApi
 - Axios
 - classnames
-Link to sait: https://israpilow.github.io/react-pizza-upadate-
+Link to sait: https://israpilow.github.io/react-pizza-update-
