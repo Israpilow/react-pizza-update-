@@ -9,7 +9,7 @@ export const fetPizzas = (category, sortBy, pagination, search) => (dispatch) =>
   dispatch(setLoaded(false));
   axios
     .get(
-      `http://localhost:3001/pizzas?${search ? `q=${search}` : ''}${
+      `/pizzas?${search ? `q=${search}` : ''}${
         category !== null ? `category=${category}` : ''
       }&_page=${pagination.page}&_limit=${pagination.limit}&_sort=${sortBy.type}${
         sortBy.order !== undefined ? `&_order=${sortBy.order}` : '&_order=desc'
