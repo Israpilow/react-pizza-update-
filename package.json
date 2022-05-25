@@ -38,7 +38,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://israpilow.github.io/react-pizza-update-/",
+  "proxy": "https://israpilow.github.io/react-pizza-update-",
   "browserslist": {
     "production": [
       ">0.2%",
