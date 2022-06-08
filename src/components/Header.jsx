@@ -8,7 +8,6 @@ import SearchBlock from './Search/SearchBlock';
 function Header() {
   const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
   const location = useLocation();
-  console.log(location.pathname === process.env.PUBLIC_URL + '/cart');
   return (
     <div className="header">
       <div className="container">
