@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Categories({ categoriesItem, onClickCategory }) {
+const Categories = React.memo(({ categoriesItem, onClickCategory }) => {
   const [categoriesActive, setCategoriesActive] = React.useState(null);
 
   const onCategiriesClickActive = (index) => {
@@ -30,7 +30,7 @@ function Categories({ categoriesItem, onClickCategory }) {
       </ul>
     </div>
   );
-}
+});
 
 Categories.propTypes = {
   categoriesItem: PropTypes.array.isRequired,

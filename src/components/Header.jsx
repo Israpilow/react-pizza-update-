@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import logoSvg from '../assets/img/pizza-logo.svg';
@@ -7,6 +7,8 @@ import SearchBlock from './Search/SearchBlock';
 
 function Header() {
   const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
+  const location = useLocation();
+  console.log(location.pathname === process.env.PUBLIC_URL + '/cart');
   return (
     <div className="header">
       <div className="container">
@@ -19,7 +21,7 @@ function Header() {
             </div>
           </div>
         </Link>
-        <SearchBlock />
+        {location.pathname !== process.env.PUBLIC_URL + '/cart' ? <SearchBlock /> : ''}
         <div className="header__cart">
           <Link to={process.env.PUBLIC_URL + '/cart'} className="button button--cart">
             <span>{totalPrice} ₽</span>

@@ -12,7 +12,6 @@ import LoadingBlock from '../components/PizzaBlock/LoadingBlock';
 
 function Home() {
   const dispatch = useDispatch();
-
   const categoriesItem = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
   const pizzasItems = useSelector(({ pizzas }) => pizzas.items);
@@ -24,9 +23,9 @@ function Home() {
     dispatch(fetPizzas(category, sortBy, pagination, search));
   }, [category, sortBy, pagination, search]);
 
-  const onClickCategory = (index) => {
+  const onClickCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
-  };
+  }, []);
 
   return (
     <div className="content">

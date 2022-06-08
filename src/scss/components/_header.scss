@@ -8,20 +8,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 768px) {
+    @media (max-width: 867px) {
+      display: grid;
       flex-direction: column;
+      row-gap: 20px;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 867px) {
     &__cart {
-      margin-top: 30px;
+      grid-column-end: 3;
     }
   }
 
   &__logo {
     display: flex;
     text-align: left;
+    @media (max-width: 350px) {
+      div {
+        display: flex;
+        align-items: center;
+        h1 {
+          font-size: 17px;
+        }
+        p {
+          display: none;
+        }
+      }
+    }
     img {
       margin-right: 15px;
     }

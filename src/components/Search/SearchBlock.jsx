@@ -4,11 +4,11 @@ import { setClearValue, setSearch } from '../../redux/actions/filters';
 
 import styles from './Search.module.scss';
 
-const SearchBlock = () => {
+const SearchBlock = React.memo(() => {
   const dispatch = useDispatch();
   const { search } = useSelector(({ filters }) => filters);
 
-  const onChangeValue = (e) => {
+  const onChangeValue = React.useCallback((e) => {
     const targetValue = e.target.value;
     dispatch(setSearch(targetValue));
 
@@ -18,11 +18,11 @@ const SearchBlock = () => {
     //   }
     //   return false;
     // });
-  };
+  }, []);
 
-  const onClearValue = () => {
+  const onClearValue = React.useCallback(() => {
     dispatch(setClearValue());
-  };
+  }, []);
 
   return (
     <div className={styles.root}>
@@ -74,6 +74,6 @@ const SearchBlock = () => {
       </svg>
     </div>
   );
-};
+});
 
 export default SearchBlock;

@@ -15,6 +15,9 @@ body {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
+  @media (max-width: 514px) {
+    width: 100%;
+  }
 }
 
 .content {
@@ -29,12 +32,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     column-gap: 40px;
+    justify-content: center;
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 900px) {
+      display: grid;
+      flex-direction: column;
+      row-gap: 20px;
+    }
   }
 }
 
@@ -299,7 +308,9 @@ body {
     margin: 0 auto;
     width: 560px;
     text-align: center;
-
+    @media (max-width: 777px) {
+      width: 100%;
+    }
     h2 {
       font-size: 32px;
       margin-bottom: 10px;

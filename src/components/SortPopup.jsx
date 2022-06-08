@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { setSortBy } from '../redux/actions/filters';
 
-function SortPopup() {
+const SortPopup = React.memo(() => {
   const sortItems = [
     { name: 'Популярные (DESC)', type: 'rating', order: 'desc' },
     { name: 'Популярные (ASC)', type: 'rating', order: 'asc' },
@@ -19,11 +19,11 @@ function SortPopup() {
   const [sortPopup, setSortPopup] = React.useState(false);
   const sortRef = React.useRef();
 
-  const onSortClickActive = (obj) => {
+  const onSortClickActive = React.useCallback((obj) => {
     setSortActive(obj.name);
     setSortPopup(false);
     dispatch(setSortBy(obj));
-  };
+  }, []);
 
   const onPopupSortClick = () => {
     setSortPopup(!sortPopup);
@@ -73,6 +73,6 @@ function SortPopup() {
       )}
     </div>
   );
-}
+});
 
 export default SortPopup;
