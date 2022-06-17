@@ -1,10 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Categories = React.memo(({ categoriesItem, onClickCategory }) => {
+type CategoriesProps = {
+  categoriesItem: string[];
+  onClickCategory: (index: number) => void;
+};
+
+const Categories: React.FC<CategoriesProps> = React.memo(({ categoriesItem, onClickCategory }) => {
   const [categoriesActive, setCategoriesActive] = React.useState(null);
 
-  const onCategiriesClickActive = (index) => {
+  const onCategiriesClickActive = (index: any) => {
     setCategoriesActive(index);
     onClickCategory(index);
   };
@@ -31,10 +35,5 @@ const Categories = React.memo(({ categoriesItem, onClickCategory }) => {
     </div>
   );
 });
-
-Categories.propTypes = {
-  categoriesItem: PropTypes.array.isRequired,
-  onClickCategory: PropTypes.func,
-};
 
 export default Categories;

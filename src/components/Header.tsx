@@ -5,8 +5,14 @@ import { useSelector } from 'react-redux';
 import logoSvg from '../assets/img/pizza-logo.svg';
 import SearchBlock from './Search/SearchBlock';
 
+type CartItem = {
+  totalPrice: number;
+  totalCount: number;
+  cart: any;
+};
+
 function Header() {
-  const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
+  const { totalPrice, totalCount }: CartItem = useSelector(({ cart }: CartItem) => cart);
   const location = useLocation();
   return (
     <div className="header">

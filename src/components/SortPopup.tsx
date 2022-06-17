@@ -3,8 +3,14 @@ import { useDispatch } from 'react-redux';
 
 import { setSortBy } from '../redux/actions/filters';
 
-const SortPopup = React.memo(() => {
-  const sortItems = [
+type SortItem = {
+  name: string;
+  type: string;
+  order: string;
+};
+
+const SortPopup: React.FC = React.memo(() => {
+  const sortItems: SortItem[] = [
     { name: 'Популярные (DESC)', type: 'rating', order: 'desc' },
     { name: 'Популярные (ASC)', type: 'rating', order: 'asc' },
     { name: 'По убыванию цены (DESC)', type: 'price', order: 'desc' },
@@ -12,24 +18,28 @@ const SortPopup = React.memo(() => {
     { name: 'По алфавиту (DESC)', type: 'name', order: 'desc' },
     { name: 'По алфавиту (ASC)', type: 'name', order: 'asc' },
   ];
+
   const dispatch = useDispatch();
   const sortItem = Object.values(sortItems[0]);
 
   const [sortActive, setSortActive] = React.useState(sortItem[0]);
   const [sortPopup, setSortPopup] = React.useState(false);
-  const sortRef = React.useRef();
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
-  const onSortClickActive = React.useCallback((obj) => {
-    setSortActive(obj.name);
-    setSortPopup(false);
-    dispatch(setSortBy(obj));
-  }, []);
+  const onSortClickActive = React.useCallback(
+    (obj: SortItem) => {
+      setSortActive(obj.name);
+      setSortPopup(false);
+      dispatch(setSortBy(obj));
+    },
+    [dispatch],
+  );
 
   const onPopupSortClick = () => {
     setSortPopup(!sortPopup);
   };
 
-  const onHandleClickPopup = (event) => {
+  const onHandleClickPopup = (event: any) => {
     if (!event.path.includes(sortRef.current)) {
       setSortPopup(false);
     }

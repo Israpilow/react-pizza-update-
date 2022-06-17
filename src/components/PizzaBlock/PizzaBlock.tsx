@@ -1,11 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 
 import { setAddCart } from '../../redux/actions/cart';
 
-function PizzaBlock({ id, name, price, imageUrl, types, sizes, cartItems }) {
+type PizzaProps = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  types: number[];
+  sizes: number[];
+  cartItems: any;
+};
+
+const PizzaBlock: React.FC<PizzaProps> = ({
+  id,
+  name,
+  price,
+  imageUrl,
+  types,
+  sizes,
+  cartItems,
+}) => {
   const dispatch = useDispatch();
   const [typeActive, setTypeActive] = React.useState(types[0]);
   const [sizeActive, setSizeActive] = React.useState(sizes[0]);
@@ -13,11 +30,11 @@ function PizzaBlock({ id, name, price, imageUrl, types, sizes, cartItems }) {
   const typeItems = ['тонкое', 'традиционное'];
   const sizeItems = [26, 30, 40];
 
-  const onTypeClickActive = (index) => {
+  const onTypeClickActive = (index: number) => {
     setTypeActive(index);
   };
 
-  const onSizeClickActive = (index) => {
+  const onSizeClickActive = (index: number) => {
     setSizeActive(index);
   };
 
@@ -89,14 +106,6 @@ function PizzaBlock({ id, name, price, imageUrl, types, sizes, cartItems }) {
       </div>
     </div>
   );
-}
-
-PizzaBlock.propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  types: PropTypes.arrayOf(PropTypes.number).isRequired,
-  sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default PizzaBlock;

@@ -1,6 +1,21 @@
 import React from 'react';
 
-const CartItems = ({
+type CartItemsProps = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: any;
+  types: number[];
+  sizes: number[];
+  totalCount: number;
+  totalPrice: number;
+  onRemoveCartItems: any;
+  onPlusItem: any;
+  onMinusItem: any;
+  cartItems: any;
+};
+
+const CartItems: React.FC<CartItemsProps> = ({
   id,
   name,
   price,

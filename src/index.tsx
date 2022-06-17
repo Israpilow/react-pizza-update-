@@ -9,11 +9,15 @@ import store from './redux/store';
 import './index.css';
 import './scss/app.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
-);
+const rootElem = document.getElementById('root');
+
+if (rootElem) {
+  const root = ReactDOM.createRoot(rootElem);
+  root.render(
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
+  );
+}

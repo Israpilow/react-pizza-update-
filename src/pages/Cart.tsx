@@ -7,34 +7,42 @@ import { setRemoveCart, setPlusItem, setMinusItem, setDeleteCart } from '../redu
 
 import cartEmptyImage from '../assets/img/empty-cart.svg';
 
-const Cart = () => {
-  const dispatch = useDispatch();
-  const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart);
+type CartProps = {
+  items: string[];
+  totalPrice: number;
+  totalCount: number;
+  cart: any;
+};
 
-  const cartItems = useSelector(({ cart }) => cart.items);
+const Cart: React.FC = () => {
+  const dispatch = useDispatch();
+  const { items, totalPrice, totalCount } = useSelector(({ cart }: CartProps) => cart);
+
+  const cartItems = useSelector(({ cart }: CartProps) => cart.items);
   const newCartItems = Object.keys(items).map((key) => items[key].items[0]);
 
-  const confirmItem = (id) => {
-    return cartItems[id].items.map((item) => item.name)[0];
+  const confirmItem = (id: number) => {
+    return cartItems[id].items.map((item: any) => item.name)[0];
   };
 
-  const onRemoveCartItems = (id) => {
+  const onRemoveCartItems = (id: number) => {
     if (window.confirm(`Вы действительно хотите удалить пиццу - ${confirmItem(id)} из карзины ?`)) {
       dispatch(setRemoveCart(id));
     }
+    return;
   };
 
-  const onPlusItem = (id) => {
+  const onPlusItem = (id: number) => {
     dispatch(setPlusItem(id));
   };
 
-  const onMinusItem = (id) => {
+  const onMinusItem = (id: number) => {
     dispatch(setMinusItem(id));
   };
 
-  const onDeleteCart = (id) => {
+  const onDeleteCart = () => {
     if (window.confirm('Вы действительно хотите удалить все пиццы из карзины ?')) {
-      dispatch(setDeleteCart(id));
+      dispatch(setDeleteCart());
     }
   };
 
@@ -126,9 +134,9 @@ const Cart = () => {
                     key={item.id}
                     totalPrice={items[item.id].totalPrice}
                     totalCount={items[item.id].totalCount}
-                    onRemoveCartItems={onRemoveCartItems}
-                    onPlusItem={onPlusItem}
-                    onMinusItem={onMinusItem}
+                    onRemoveCartItems={() => onRemoveCartItems(item.id)}
+                    onPlusItem={() => onPlusItem(item.id)}
+                    onMinusItem={() => onMinusItem(item.id)}
                     cartItems={cartItems[item.id] && cartItems[item.id].items.length}
                   />
                 );

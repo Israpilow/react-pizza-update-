@@ -4,14 +4,18 @@ import { setClearValue, setSearch } from '../../redux/actions/filters';
 
 import styles from './Search.module.scss';
 
-const SearchBlock = React.memo(() => {
-  const dispatch = useDispatch();
-  const { search } = useSelector(({ filters }) => filters);
+type Search = {
+  search: string;
+  filters: any;
+};
 
-  const onChangeValue = React.useCallback((e) => {
+const SearchBlock: React.FC = React.memo(() => {
+  const dispatch = useDispatch();
+  const { search } = useSelector(({ filters }: Search) => filters);
+
+  const onChangeValue = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
     dispatch(setSearch(targetValue));
-
     // const newItems = items.filter((item) => {
     //   if (item.name.toLowerCase().includes(targetValue)) {
     //     return item;

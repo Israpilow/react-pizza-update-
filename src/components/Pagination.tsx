@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { setPagination } from '../redux/actions/filters';
 
-const Pagination = () => {
+const Pagination: React.FC = () => {
   const dispatch = useDispatch();
 
   const pagItem = [
@@ -16,7 +16,7 @@ const Pagination = () => {
 
   const [pagActive, setPagActive] = React.useState(itemPag[0]);
 
-  const onClickPagActive = (item) => {
+  const onClickPagActive = (item: any) => {
     setPagActive(item.num);
     dispatch(setPagination(item));
   };

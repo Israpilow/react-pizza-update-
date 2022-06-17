@@ -10,20 +10,23 @@ import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Pagination from '../components/Pagination';
 import LoadingBlock from '../components/PizzaBlock/LoadingBlock';
 
-function Home() {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const categoriesItem = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
+  const categoriesItem: string[] = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-  const pizzasItems = useSelector(({ pizzas }) => pizzas.items);
-  const { isLoaded } = useSelector(({ pizzas }) => pizzas);
-  const cartItems = useSelector(({ cart }) => cart.items);
-  const { category, sortBy, pagination, search } = useSelector(({ filters }) => filters);
+  const pizzasItems = useSelector(({ pizzas }: any) => pizzas.items);
+  const { isLoaded } = useSelector(({ pizzas }: any) => pizzas);
+  const cartItems = useSelector(({ cart }: any) => cart.items);
+  const { category, sortBy, pagination, search }: any = useSelector(({ filters }: any) => filters);
 
   React.useEffect(() => {
-    dispatch(fetPizzas(category, sortBy, pagination, search));
+    dispatch(
+      // @ts-ignore
+      fetPizzas(category, sortBy, pagination, search),
+    );
   }, [category, sortBy, pagination, search]);
 
-  const onClickCategory = React.useCallback((index) => {
+  const onClickCategory = React.useCallback((index: number) => {
     dispatch(setCategory(index));
   }, []);
 
@@ -39,7 +42,7 @@ function Home() {
         </h2>
         <div className="content__items">
           {isLoaded
-            ? pizzasItems.map((item) => {
+            ? pizzasItems.map((item: any) => {
                 return (
                   <PizzaBlock
                     {...item}
@@ -56,6 +59,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
