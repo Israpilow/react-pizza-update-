@@ -11,7 +11,7 @@ type CartItem = {
   cart: any;
 };
 
-function Header() {
+const Header: React.FC = () => {
   const { totalPrice, totalCount }: CartItem = useSelector(({ cart }: CartItem) => cart);
   const location = useLocation();
   return (
@@ -62,6 +62,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
