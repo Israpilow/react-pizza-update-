@@ -2,7 +2,7 @@ Online store of pizzas - React Pizza(update version 0.2)
 
 Stack:
 
-- ReactJS + хуки
+- ReactJS + хуки / TypeScript
 - React Router
 - Redux
 - Redux thunk
