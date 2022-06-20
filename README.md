@@ -1,4 +1,4 @@
-# Frontend Events
+# React Pizza
 
 <img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/sore1.jpg" width="600"/>
 
