@@ -1,8 +1,7 @@
-@import '../variables';
+@import "../variables";
 
 .categories {
   flex: 1;
-  max-width: 80%;
   overflow: auto;
 
   @media (max-width: 768px) {
@@ -12,7 +11,7 @@
 
   ul {
     display: flex;
-
+    padding-bottom: 20px;
     li {
       background-color: #f9f9f9;
       padding: 13px 30px;
@@ -20,6 +19,7 @@
       margin-right: 10px;
       font-weight: bold;
       cursor: pointer;
+      border: 1px solid #c7c7c7;
       transition: background-color 0.1s ease-in-out;
       @include noselect();
 
