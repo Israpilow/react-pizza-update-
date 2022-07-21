@@ -71,7 +71,9 @@ body {
     display: flex;
     align-items: center;
     font-size: 32px;
-
+    @media (max-width: 767px) {
+      font-size: 24px;
+    }
     svg {
       position: relative;
       top: -2px;
@@ -96,6 +98,9 @@ body {
       margin-left: 7px;
       color: #b6b6b6;
       font-size: 18px;
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
 
     span,
@@ -122,13 +127,20 @@ body {
     border-top: 1px solid $gray-line;
     padding-top: 30px;
     margin-top: 30px;
-
+    @media (max-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      row-gap: 20px;
+      justify-content: space-between;
+    }
     &-img {
       display: flex;
       align-items: center;
       margin-right: 15px;
       width: 10%;
-
+      @media (max-width: 767px) {
+        width: 100%;
+      }
       img {
         width: 80px;
         height: 80px;
@@ -140,7 +152,9 @@ body {
       flex-direction: column;
       justify-content: center;
       width: 40%;
-
+      @media (max-width: 767px) {
+        width: 100%;
+      }
       h3 {
         font-weight: bold;
         font-size: 22px;
@@ -159,7 +173,11 @@ body {
       align-items: center;
       justify-content: space-between;
       width: 13%;
-
+      @media (max-width: 767px) {
+        width: 100%;
+        grid-row: 2;
+        grid-column: 1;
+      }
       &-minus {
         svg {
           path:first-of-type {
@@ -199,7 +217,12 @@ body {
       align-items: center;
       justify-content: center;
       width: 33%;
-
+      @media (max-width: 767px) {
+        width: 100%;
+        grid-row: 2;
+        grid-column: 2;
+        justify-content: end;
+      }
       b {
         font-weight: bold;
         font-size: 22px;
@@ -212,7 +235,11 @@ body {
       align-items: center;
       justify-content: flex-end;
       width: 4%;
-
+      @media (max-width: 767px) {
+        width: 100%;
+        grid-row: 1;
+        grid-column: 3;
+      }
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
       }
@@ -249,7 +276,9 @@ body {
 
       span {
         font-size: 22px;
-
+        @media (max-width: 767px) {
+          font-size: 16px;
+        }
         &:last-of-type {
           b {
             color: $orange;
@@ -262,13 +291,19 @@ body {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
-
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
       .go-back-btn {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 210px;
-
+        @media (max-width: 767px) {
+          width: 100%;
+        }
         border-color: darken($color: $gray-line, $amount: 10);
 
         span {
@@ -300,6 +335,10 @@ body {
         font-weight: 600;
         width: 210px;
         padding: 16px;
+        @media (max-width: 767px) {
+          width: 100%;
+          padding: 9px;
+        }
       }
     }
   }
