@@ -38,7 +38,3 @@
 <a href="https://israpilow.github.io/react-pizza-update-" target="_blank">
   <img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/empty.jpg" width="600" />
 </a>
-
-
-
-
