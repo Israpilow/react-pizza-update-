@@ -33,7 +33,7 @@
 
 # 🗄Материалы
 
-[React Pizza](https://israpilow.github.io/react-pizza-update-)
+  [React Pizza](https://israpilow.github.io/react-pizza-update-)(Посмотреть можно тут)
 
 <a href="https://israpilow.github.io/react-pizza-update-" target="_blank">
   <img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/sore1.jpg" width="600"/>
