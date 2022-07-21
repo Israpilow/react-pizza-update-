@@ -36,10 +36,10 @@
 [React Pizza](https://israpilow.github.io/react-pizza-update-)
 
 <a href="https://the-unl.com" target="_blank">
-<img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/sore1.jpg" width="600" height="600"/>
+<img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/sore1.jpg" width="500"/>
 </a>
 <a href="https://play.google.com/store/apps/dev?id=7235693910501061926" target="_blank">
-<img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/empty.jpg" width="600" height="600"/>
+<img src="https://github.com/Israpilow/react-pizza-update-/blob/master/src/assets/img/empty.jpg" width="500" />
 </a>
 
 
